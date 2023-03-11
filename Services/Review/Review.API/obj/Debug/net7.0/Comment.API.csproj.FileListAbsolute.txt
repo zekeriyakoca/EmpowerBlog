@@ -1,0 +1,7 @@
+C:\repos\EmpowerBlog\Services\Comment\Comment.API\obj\Debug\net7.0\Comment.API.csproj.AssemblyReference.cache
+C:\repos\EmpowerBlog\Services\Comment\Comment.API\obj\Debug\net7.0\Comment.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\EmpowerBlog\Services\Comment\Comment.API\obj\Debug\net7.0\Comment.API.AssemblyInfoInputs.cache
+C:\repos\EmpowerBlog\Services\Comment\Comment.API\obj\Debug\net7.0\Comment.API.AssemblyInfo.cs
+C:\repos\EmpowerBlog\Services\Comment\Comment.API\obj\Debug\net7.0\Comment.API.csproj.CoreCompileInputs.cache
+C:\repos\EmpowerBlog\Services\Comment\Comment.API\obj\Debug\net7.0\Comment.API.MvcApplicationPartsAssemblyInfo.cs
+C:\repos\EmpowerBlog\Services\Comment\Comment.API\obj\Debug\net7.0\Comment.API.MvcApplicationPartsAssemblyInfo.cache
