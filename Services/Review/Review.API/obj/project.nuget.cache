@@ -1,13 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "VtkKEMAzZBZnRkfF54G60IrfAirve84i69JATaa9g0ckC3ZxC+8PVPCtWWkkB25VcrDZVcp8PTvHzpOkesDHwA==",
+  "dgSpecHash": "Xo7ygYct2d2Zu3HCHCR/OOKIy+6hXbaTJbZ60HiiKfkvWHUOL8/t0qz6MUw86znwbDl0lxCiO5kEITaa+si+JA==",
   "success": true,
   "projectFilePath": "C:\\repos\\EmpowerBlog\\Services\\Review\\Review.API\\Review.API.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\zeker\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\azure.core\\1.27.0\\azure.core.1.27.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\azure.core.amqp\\1.2.0\\azure.core.amqp.1.2.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\azure.messaging.servicebus\\7.12.0\\azure.messaging.servicebus.7.12.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\microsoft.azure.amqp\\2.6.1\\microsoft.azure.amqp.2.6.1.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

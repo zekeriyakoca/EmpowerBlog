@@ -2,10 +2,12 @@ using EmpowerBlog.Services.Review.API.Infrastructure;
 using EmpowerBlog.Services.Review.API.IntegrationEvents;
 using EmpowerBlog.Services.Review.API.IntegrationEvents.Handlers;
 using EventBus.Interfaces;
+using EventBus.ServiceBus;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Polly;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,8 +30,8 @@ builder.Services.AddDbContext<ReviewContext>(options =>
 });
 
 builder.Services.AddTransient<ReviewContextSeeder>();
-builder.Services.AddEventBus();
 
+builder.Services.AddEventBus(builder.Configuration);
 
 var app = builder.Build();
 
@@ -48,6 +50,8 @@ app.MapControllers();
 
 app.MigrateDB();
 
+app.ConfigureIntegrationEvents();
+
 app.Run();
 
 public static class WebApplicationExtension
@@ -59,7 +63,6 @@ public static class WebApplicationExtension
 
         // Subscribe integration events
         eventBus.Subscribe<BlogDeletedIntegrationEvent, BlogDeletedIntegrationEventHandler>();
-
     }
 
     public static void MigrateDB(this WebApplication app)
@@ -85,16 +88,21 @@ public static class WebApplicationExtension
                 context.Database.Migrate();
                 await seeder.SeedAsync();
             });
-
     }
 }
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddEventBus(this IServiceCollection services)
+    public static IServiceCollection AddEventBus(this IServiceCollection services, ConfigurationManager configuration)
     {
-        // Inject ServiceBus service
+        services.AddSingleton<IServiceBusPersisterConnection>(sp =>
+        {
+            var serviceBusConnection = configuration.GetValue<string>("EventBus:ConnectionString");
+            return new DefaultServiceBusPersisterConnection(serviceBusConnection);
+        });
+
+        services.AddSingleton<IEventBus, ServiceBusEventBus>();
+
         return services;
     }
 }
-

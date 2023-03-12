@@ -82,3 +82,6 @@ C:\repos\EmpowerBlog\Services\Post\Post.API\obj\Debug\net7.0\Post.API.pdb
 C:\repos\EmpowerBlog\Services\Post\Post.API\obj\Debug\net7.0\Post.API.genruntimeconfig.cache
 C:\repos\EmpowerBlog\Services\Post\Post.API\obj\Debug\net7.0\ref\Post.API.dll
 C:\repos\EmpowerBlog\Services\Post\Post.API\bin\Debug\net7.0\Polly.dll
+C:\repos\EmpowerBlog\Services\Post\Post.API\bin\Debug\net7.0\Azure.Core.Amqp.dll
+C:\repos\EmpowerBlog\Services\Post\Post.API\bin\Debug\net7.0\Azure.Messaging.ServiceBus.dll
+C:\repos\EmpowerBlog\Services\Post\Post.API\bin\Debug\net7.0\Microsoft.Azure.Amqp.dll

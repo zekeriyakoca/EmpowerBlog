@@ -1,6 +1,7 @@
 using EmpowerBlog.Services.Post.API.Application.Commands;
 using EmpowerBlog.Services.Post.infrastructure.CQRS;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace EmpowerBlog.Services.Post.API.Controllers
 {
@@ -20,19 +21,23 @@ namespace EmpowerBlog.Services.Post.API.Controllers
         }
 
         [HttpGet("{blogId}")]
-        public IActionResult GetBlog([FromRoute] Guid blogId)
+        public async Task<IActionResult> GetBlog([FromRoute] Guid blogId)
         {
-            var blog = queryExecuter.ExecuteAsync(new GetBlogQuery(blogId));
+            var blog = await queryExecuter.ExecuteAsync(new GetBlogQuery(blogId));
 
             if (blog == default)
                 return NotFound();
             return Ok(blog);
         }
 
-        [HttpPost("paginated")]
-        public async Task<IActionResult> GetAllBlogs([FromBody] PaginatedBlogsQuery query)
+        [HttpGet]
+        public async Task<IActionResult> GetAllBlogs([FromQuery] int page = 0, [FromQuery] int take = 10)
         {
-            var blogs = await queryExecuter.ExecuteAsync(query);
+            var blogs = await queryExecuter.ExecuteAsync(new PaginatedBlogsQuery
+            {
+                SkipCount = page * take,
+                TakeCount = take
+            });
             return Ok(blogs);
         }
 
@@ -50,9 +55,23 @@ namespace EmpowerBlog.Services.Post.API.Controllers
         }
 
         [HttpPut("{blogId}")]
-        public IActionResult UpdateBlog([FromQuery] Guid blogId)
+        public IActionResult UpdateBlog([FromRoute] Guid blogId)
         {
-            return Ok();
+            throw new NotImplementedException();
+        }
+
+        [HttpDelete("{blogId}")]
+        public async Task<IActionResult> DeleteBlog([FromRoute] Guid blogId)
+        {
+            var isSuccess = await commandExecuter.ExecuteAsync(new DeleteBlogCommand
+            {
+                Id = blogId
+            });
+
+            if (isSuccess)
+                return Ok();
+
+            return BadRequest("Blog couldn't be deleted! Please check your parameters");
         }
     }
 }

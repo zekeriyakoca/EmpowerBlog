@@ -1,8 +1,24 @@
 {
   "version": 2,
-  "dgSpecHash": "VM0tSm/9NaHOy3baltkiYIkX4ewGyMb3scumBRXNTkK1N6ldQARWDw1GH/kxeF3nvVMINIGjeEijwhnB34c1gQ==",
+  "dgSpecHash": "g+nlC71IEc2WprNgNNDkAphMpcCIf32GCtVRsUodsNP+HRsA2PR99l0JOy3ZmyJGXe8/kKqz7D/IJKQ8MmWP5A==",
   "success": true,
   "projectFilePath": "C:\\repos\\EmpowerBlog\\Common\\EventBus\\EventBus.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\zeker\\.nuget\\packages\\azure.core\\1.27.0\\azure.core.1.27.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\azure.core.amqp\\1.2.0\\azure.core.amqp.1.2.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\azure.messaging.servicebus\\7.12.0\\azure.messaging.servicebus.7.12.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\microsoft.azure.amqp\\2.6.1\\microsoft.azure.amqp.2.6.1.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.6.0\\system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using System.Windows.Input;
 using EmpowerBlog.Services.Post.API.Application.DomainEventHandlers;
+using EventBus.ServiceBus;
+using Microsoft.Extensions.Options;
 
 namespace EmpowerBlog.Services.Post.API
 {
@@ -52,7 +54,6 @@ namespace EmpowerBlog.Services.Post.API
 
             });
 
-
             services.AddTransient<PostContextSeeder>();
 
             services.AddHandlers();
@@ -93,6 +94,7 @@ namespace EmpowerBlog.Services.Post.API
             // TODO : Subscribe with reflection
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
             // Subscribe to IntegrationEvents
+
         }
     }
 
@@ -112,11 +114,17 @@ namespace EmpowerBlog.Services.Post.API
             services.AddTransient<IHandler<BlogDeletedDomainEvent>, BlogDeletedEventHandler>();
             return services;
         }
+
         public static IServiceCollection AddEventBus(this IServiceCollection services, IConfiguration configuration)
         {
-            //var retryCount = Configuration["ServiceBus:EventBusRetryCount"] ?? "5";
+            services.AddSingleton<IServiceBusPersisterConnection>(sp =>
+            {
+                var serviceBusConnection = configuration.GetValue<string>("EventBus:ConnectionString");
+                return new DefaultServiceBusPersisterConnection(serviceBusConnection);
+            });
 
-            // Inject ServiceBus service
+            services.AddSingleton<IEventBus, ServiceBusEventBus>();
+
             return services;
         }
     }

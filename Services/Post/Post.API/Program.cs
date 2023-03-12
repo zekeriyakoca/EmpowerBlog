@@ -9,7 +9,6 @@ namespace EmpowerBlog.Services.Post.API;
 
 public class Program
 {
-
     public static void Main(string[] args)
     {
         var builder = Host.CreateDefaultBuilder(args)

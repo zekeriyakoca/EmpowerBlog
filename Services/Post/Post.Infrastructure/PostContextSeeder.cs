@@ -17,7 +17,7 @@ namespace EmpowerBlog.Services.Post.API.Infrastructure
             {
                 context.Blogs.Add(new Blog
                 {
-                    Id = new Guid("28013d52-5436-4c96-9d0d-8612d872546f"),
+                    Id = new Guid("28013d52-5436-4c96-9d0d-8612d8725000"),
                     Name = "Sample Blog",
                     Description = "Sample Blog Description"
                 });

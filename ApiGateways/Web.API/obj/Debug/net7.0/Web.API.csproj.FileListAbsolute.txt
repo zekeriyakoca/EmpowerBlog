@@ -49,3 +49,6 @@ C:\repos\EmpowerBlog\ApiGateways\Web.API\obj\Debug\net7.0\refint\Web.API.dll
 C:\repos\EmpowerBlog\ApiGateways\Web.API\obj\Debug\net7.0\Web.API.pdb
 C:\repos\EmpowerBlog\ApiGateways\Web.API\obj\Debug\net7.0\Web.API.genruntimeconfig.cache
 C:\repos\EmpowerBlog\ApiGateways\Web.API\obj\Debug\net7.0\ref\Web.API.dll
+C:\repos\EmpowerBlog\ApiGateways\Web.API\bin\Debug\net7.0\Microsoft.Extensions.Http.Polly.dll
+C:\repos\EmpowerBlog\ApiGateways\Web.API\bin\Debug\net7.0\Polly.dll
+C:\repos\EmpowerBlog\ApiGateways\Web.API\bin\Debug\net7.0\Polly.Extensions.Http.dll

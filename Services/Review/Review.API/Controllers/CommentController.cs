@@ -7,7 +7,7 @@ namespace EmpowerBlog.Services.Review.API.Controllers
 {
     [ApiController]
     //[Authorize]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ReviewController : ControllerBase
     {
 
@@ -20,13 +20,13 @@ namespace EmpowerBlog.Services.Review.API.Controllers
             _reviewService = reviewService;
         }
 
-        [HttpGet("{postId}")]
-        public ActionResult<IEnumerable<CommentDto>> GetComments([FromRoute]Guid postId)
+        [HttpGet("{blogId}")]
+        public ActionResult<IEnumerable<CommentDto>> GetComments([FromRoute]Guid blogId)
         {
-            if (postId == null)
+            if (blogId == null)
                 return BadRequest("{PostId} parameter cannot be null!");
 
-            return Ok(_reviewService.GetCommentsByPost(postId));
+            return Ok(_reviewService.GetCommentsByPost(blogId));
         }
     }
 }

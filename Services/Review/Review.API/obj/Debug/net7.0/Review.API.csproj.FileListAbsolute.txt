@@ -78,3 +78,6 @@ C:\repos\EmpowerBlog\Services\Review\Review.API\obj\Debug\net7.0\Review.API.genr
 C:\repos\EmpowerBlog\Services\Review\Review.API\obj\Debug\net7.0\ref\Review.API.dll
 C:\repos\EmpowerBlog\Services\Review\Review.API\bin\Debug\net7.0\EventBus.dll
 C:\repos\EmpowerBlog\Services\Review\Review.API\bin\Debug\net7.0\EventBus.pdb
+C:\repos\EmpowerBlog\Services\Review\Review.API\bin\Debug\net7.0\Azure.Core.Amqp.dll
+C:\repos\EmpowerBlog\Services\Review\Review.API\bin\Debug\net7.0\Azure.Messaging.ServiceBus.dll
+C:\repos\EmpowerBlog\Services\Review\Review.API\bin\Debug\net7.0\Microsoft.Azure.Amqp.dll

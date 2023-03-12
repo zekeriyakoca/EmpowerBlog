@@ -7,6 +7,9 @@ namespace EmpowerBlog.Services.Post.API.Dtos
     {
         public static BlogDto ToBlogDto(this Blog comment)
         {
+            if (comment == null)
+                return default;
+
             return new BlogDto
             {
                 Id= comment.Id.ToString(),
