@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  web.api:
+    image: ${DOCKER_REGISTRY-}webapi
+    build:
+      context: .
+      dockerfile: ApiGateways\Web.API\Dockerfile
+
+  post.api:
+    image: ${DOCKER_REGISTRY-}postapi
+    build:
+      context: .
+      dockerfile: Services\Post\Post.API\Dockerfile
+
+
+  review.api:
+    image: ${DOCKER_REGISTRY-}reviewapi
+    build:
+      context: .
+      dockerfile: Services\Review\Review.API\Dockerfile
+

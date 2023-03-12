@@ -2,6 +2,7 @@
 using EmpowerBlog.Web.API.Services;
 using Polly.Extensions.Http;
 using Polly;
+using System.Threading.RateLimiting;
 
 namespace EmpowerBlog.Web.API
 {
@@ -89,5 +90,29 @@ namespace EmpowerBlog.Web.API
 
 public static class ServiceCollectionExtensions
 {
+    public static void AddRateLimiter(this IServiceCollection services)
+    {
+        services.AddRateLimiter(options =>
+        {
+            options.GlobalLimiter = PartitionedRateLimiter.CreateChained(
+                PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
+                    RateLimitPartition.GetFixedWindowLimiter("common-fixed-limiter", partition =>
+                        new FixedWindowRateLimiterOptions
+                        {
+                            AutoReplenishment = true,
+                            PermitLimit = 100000,
+                            Window = TimeSpan.FromMinutes(1)
+                        })),
+                PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
+                    RateLimitPartition.GetSlidingWindowLimiter(httpContext.User?.Identity?.Name ?? "anonymous", partition =>
+                        new SlidingWindowRateLimiterOptions
+                        {
+                            AutoReplenishment = true,
+                            Window = TimeSpan.FromMinutes(1),
+                            SegmentsPerWindow = 4,
+                            PermitLimit = 250,
 
+                        })));
+        });
+    }
 }

@@ -68,6 +68,10 @@
               "target": "Package",
               "version": "[1.16.0, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.17.0, )"
+            },
             "Polly.Extensions.Http": {
               "target": "Package",
               "version": "[3.0.0, )"

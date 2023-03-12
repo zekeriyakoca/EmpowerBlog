@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qBSaK9HPrkirLJjO5JEceeXiH/+/OEbPgpFc16TZ6MwNgjgiVRpf9lNE/o2Q8mTdoEgfa6VDzkVbWp/R1f5QLA==",
+  "dgSpecHash": "pNa1Zb7mZFqOY9Z0nnUMt11M3crFuMhqjBxS8MBBuJtFbx1+tfE7OUqzVUWwv9l9c/L32SiyaMAWMwApRvaNfw==",
   "success": true,
   "projectFilePath": "C:\\repos\\EmpowerBlog\\Services\\Post\\Post.API\\Post.API.csproj",
   "expectedPackageFiles": [
@@ -48,6 +48,7 @@
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",

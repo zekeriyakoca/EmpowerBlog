@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pzhB/OzybOCHpNcwR4uY/cRXCHtodB26wn/CMt1ysxXed5crespqrtt4z0afm+nKxEInUSqKuNhsSNKkL4KI9g==",
+  "dgSpecHash": "4YmXLGt7rtDrVTY2BJML25LrnSUdeoG2xIhKJugFJZbIPh8awzHWxosq/Zuh0vm3oM3Zic25hqBU6qUAx9KnWg==",
   "success": true,
   "projectFilePath": "C:\\repos\\EmpowerBlog\\ApiGateways\\Web.API\\Web.API.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,7 @@
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.15.1\\microsoft.identitymodel.protocols.openidconnect.6.15.1.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.15.1\\microsoft.identitymodel.tokens.6.15.1.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\polly\\7.2.3\\polly.7.2.3.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\polly.extensions.http\\3.0.0\\polly.extensions.http.3.0.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
