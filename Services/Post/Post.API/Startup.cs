@@ -12,6 +12,7 @@ using System.Windows.Input;
 using EmpowerBlog.Services.Post.API.Application.DomainEventHandlers;
 using EventBus.ServiceBus;
 using Microsoft.Extensions.Options;
+using EventBus;
 
 namespace EmpowerBlog.Services.Post.API
 {
@@ -122,6 +123,8 @@ namespace EmpowerBlog.Services.Post.API
                 var serviceBusConnection = configuration.GetValue<string>("EventBus:ConnectionString");
                 return new DefaultServiceBusPersisterConnection(serviceBusConnection);
             });
+
+            services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
 
             services.AddSingleton<IEventBus, ServiceBusEventBus>();
 

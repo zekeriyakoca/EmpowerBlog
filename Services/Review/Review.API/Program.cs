@@ -1,6 +1,7 @@
 using EmpowerBlog.Services.Review.API.Infrastructure;
 using EmpowerBlog.Services.Review.API.IntegrationEvents;
 using EmpowerBlog.Services.Review.API.IntegrationEvents.Handlers;
+using EventBus;
 using EventBus.Interfaces;
 using EventBus.ServiceBus;
 using Microsoft.Data.SqlClient;
@@ -100,6 +101,8 @@ public static class ServiceCollectionExtensions
             var serviceBusConnection = configuration.GetValue<string>("EventBus:ConnectionString");
             return new DefaultServiceBusPersisterConnection(serviceBusConnection);
         });
+
+        services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
 
         services.AddSingleton<IEventBus, ServiceBusEventBus>();
 
