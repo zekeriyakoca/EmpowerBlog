@@ -1,0 +1,12 @@
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\bin\Debug\net7.0\Post.Domain.deps.json
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\bin\Debug\net7.0\Post.Domain.dll
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\bin\Debug\net7.0\Post.Domain.pdb
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\obj\Debug\net7.0\Post.Domain.csproj.AssemblyReference.cache
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\obj\Debug\net7.0\Post.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\obj\Debug\net7.0\Post.Domain.AssemblyInfoInputs.cache
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\obj\Debug\net7.0\Post.Domain.AssemblyInfo.cs
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\obj\Debug\net7.0\Post.Domain.csproj.CoreCompileInputs.cache
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\obj\Debug\net7.0\Post.Domain.dll
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\obj\Debug\net7.0\refint\Post.Domain.dll
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\obj\Debug\net7.0\Post.Domain.pdb
+C:\repos\EmpowerBlog\Services\Post\Post.Domain\obj\Debug\net7.0\ref\Post.Domain.dll

@@ -1,7 +1,6 @@
 ﻿using EmpowerBlog.Services.Review.API.Dtos;
 using EmpowerBlog.Services.Review.API.Entities;
 using EmpowerBlog.Services.Review.API.Infrastructure;
-using Microsoft.EntityFrameworkCore;
 
 namespace EmpowerBlog.Services.Review.API.Services
 {
@@ -21,7 +20,7 @@ namespace EmpowerBlog.Services.Review.API.Services
 
         public IEnumerable<CommentDto> GetCommentsByPost(Guid postId)
         {
-            var comments = context.Commnets.Where(c => c.PostId == postId).AsEnumerable();
+            var comments = context.Commnets.Where(c => c.BlogId == postId).AsEnumerable();
             return comments.Select(c => c.ToCommentDto());
         }
 

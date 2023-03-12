@@ -1,0 +1,15 @@
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\obj\Debug\net7.0\Post.Infrastructure.csproj.AssemblyReference.cache
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\obj\Debug\net7.0\Post.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\obj\Debug\net7.0\Post.Infrastructure.AssemblyInfoInputs.cache
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\obj\Debug\net7.0\Post.Infrastructure.AssemblyInfo.cs
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\obj\Debug\net7.0\Post.Infrastructure.csproj.CoreCompileInputs.cache
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\bin\Debug\net7.0\Post.Infrastructure.deps.json
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\bin\Debug\net7.0\Post.Infrastructure.dll
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\bin\Debug\net7.0\Post.Infrastructure.pdb
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\bin\Debug\net7.0\Post.Domain.dll
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\bin\Debug\net7.0\Post.Domain.pdb
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\obj\Debug\net7.0\Post.Infrastructure.csproj.CopyComplete
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\obj\Debug\net7.0\Post.Infrastructure.dll
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\obj\Debug\net7.0\refint\Post.Infrastructure.dll
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\obj\Debug\net7.0\Post.Infrastructure.pdb
+C:\repos\EmpowerBlog\Services\Post\Post.Infrastructure\obj\Debug\net7.0\ref\Post.Infrastructure.dll

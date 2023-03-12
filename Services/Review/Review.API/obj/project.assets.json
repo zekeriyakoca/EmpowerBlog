@@ -1267,6 +1267,16 @@
             "rid": "win"
           }
         }
+      },
+      "EventBus/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/EventBus.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EventBus.dll": {}
+        }
       }
     }
   },
@@ -3966,10 +3976,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "EventBus/1.0.0": {
+      "type": "project",
+      "path": "../../../Common/EventBus/EventBus.csproj",
+      "msbuildProject": "../../../Common/EventBus/EventBus.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "EventBus >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.3",
       "Microsoft.EntityFrameworkCore.InMemory >= 7.0.3",
@@ -4015,7 +4031,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\repos\\EmpowerBlog\\Common\\EventBus\\EventBus.csproj": {
+              "projectPath": "C:\\repos\\EmpowerBlog\\Common\\EventBus\\EventBus.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

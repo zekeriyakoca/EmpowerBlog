@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EmpowerBlog.Services.Review.API.Controllers
 {
     [ApiController]
-    [Authorize]
+    //[Authorize]
     [Route("[controller]")]
     public class ReviewController : ControllerBase
     {
@@ -20,7 +20,8 @@ namespace EmpowerBlog.Services.Review.API.Controllers
             _reviewService = reviewService;
         }
 
-        public ActionResult<IEnumerable<CommentDto>> GetComments(Guid postId)
+        [HttpGet("{postId}")]
+        public ActionResult<IEnumerable<CommentDto>> GetComments([FromRoute]Guid postId)
         {
             if (postId == null)
                 return BadRequest("{PostId} parameter cannot be null!");

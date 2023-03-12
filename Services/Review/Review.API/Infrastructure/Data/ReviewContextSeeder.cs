@@ -11,9 +11,14 @@
 
         public async Task SeedAsync()
         {
-            if (context.Commnets.Any())
+            if (!context.Commnets.Any())
             {
-                // TODO : Add default comments
+                context.Commnets.Add(new Entities.Comment
+                {
+                    Id = new Guid("28013d52-5436-4c96-9d0d-8612d8725111"),
+                    BlogId = new Guid("28013d52-5436-4c96-9d0d-8612d8725000"),
+                });
+                await context.SaveChangesAsync();
             }
         }
     }

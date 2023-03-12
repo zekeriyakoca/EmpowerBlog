@@ -1,6 +1,10 @@
 using EmpowerBlog.Services.Review.API.Infrastructure;
+using EmpowerBlog.Services.Review.API.IntegrationEvents;
+using EmpowerBlog.Services.Review.API.IntegrationEvents.Handlers;
+using EventBus.Interfaces;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Polly;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,11 +24,11 @@ builder.Services.SetupAppServices();
 
 builder.Services.AddDbContext<ReviewContext>(options =>
 {
-    options.UseInMemoryDatabase("ReviewDB");
-    //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Review.API"));
 });
-builder.Services.AddTransient<ReviewContextSeeder>();
 
+builder.Services.AddTransient<ReviewContextSeeder>();
+builder.Services.AddEventBus();
 
 
 var app = builder.Build();
@@ -48,6 +52,16 @@ app.Run();
 
 public static class WebApplicationExtension
 {
+    public static void ConfigureIntegrationEvents(this IApplicationBuilder app)
+    {
+        // TODO : Subscribe with reflection
+        var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+
+        // Subscribe integration events
+        eventBus.Subscribe<BlogDeletedIntegrationEvent, BlogDeletedIntegrationEventHandler>();
+
+    }
+
     public static void MigrateDB(this WebApplication app)
     {
         using var scope = app.Services.CreateScope();
@@ -72,6 +86,15 @@ public static class WebApplicationExtension
                 await seeder.SeedAsync();
             });
 
+    }
+}
+
+public static class ServiceCollectionExtensions
+{
+    public static IServiceCollection AddEventBus(this IServiceCollection services)
+    {
+        // Inject ServiceBus service
+        return services;
     }
 }
 

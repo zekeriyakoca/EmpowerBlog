@@ -1,0 +1,12 @@
+C:\repos\EmpowerBlog\Common\EventBus\obj\Debug\net7.0\EventBus.csproj.AssemblyReference.cache
+C:\repos\EmpowerBlog\Common\EventBus\obj\Debug\net7.0\EventBus.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\EmpowerBlog\Common\EventBus\obj\Debug\net7.0\EventBus.AssemblyInfoInputs.cache
+C:\repos\EmpowerBlog\Common\EventBus\obj\Debug\net7.0\EventBus.AssemblyInfo.cs
+C:\repos\EmpowerBlog\Common\EventBus\obj\Debug\net7.0\EventBus.csproj.CoreCompileInputs.cache
+C:\repos\EmpowerBlog\Common\EventBus\bin\Debug\net7.0\EventBus.deps.json
+C:\repos\EmpowerBlog\Common\EventBus\bin\Debug\net7.0\EventBus.dll
+C:\repos\EmpowerBlog\Common\EventBus\bin\Debug\net7.0\EventBus.pdb
+C:\repos\EmpowerBlog\Common\EventBus\obj\Debug\net7.0\EventBus.dll
+C:\repos\EmpowerBlog\Common\EventBus\obj\Debug\net7.0\refint\EventBus.dll
+C:\repos\EmpowerBlog\Common\EventBus\obj\Debug\net7.0\EventBus.pdb
+C:\repos\EmpowerBlog\Common\EventBus\obj\Debug\net7.0\ref\EventBus.dll

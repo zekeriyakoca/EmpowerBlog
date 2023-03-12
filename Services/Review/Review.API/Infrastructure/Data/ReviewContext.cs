@@ -5,9 +5,9 @@ namespace EmpowerBlog.Services.Review.API.Infrastructure
 {
     public class ReviewContext : DbContext
     {
-        private readonly DbContextOptions options;
+        private readonly DbContextOptions<ReviewContext> options;
 
-        public ReviewContext(DbContextOptions options) : base(options)
+        public ReviewContext(DbContextOptions<ReviewContext> options) : base(options)
         {
             this.options = options;
         }
