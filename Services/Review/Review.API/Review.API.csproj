@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 	<RootNamespace>EmpowerBlog.Services.Review.API</RootNamespace>
 	<UserSecretsId>55ba38b5-03fc-478d-a7bd-0363322cb8db</UserSecretsId>
-	<DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+	<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 	<DockerfileContext>..\..\..</DockerfileContext>
 	<DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>

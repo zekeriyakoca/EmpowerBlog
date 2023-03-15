@@ -5,18 +5,36 @@ services:
     image: ${DOCKER_REGISTRY-}webapi
     build:
       context: .
-      dockerfile: ApiGateways\Web.API\Dockerfile
-
+      dockerfile: ApiGateways/Web.API/Dockerfile
+    ports:
+      - 6001:443 
+      - 6000:80
+    networks:
+      - empower-net
+    #depends_on:
+    #  - post.api
+    #  - review.api
   post.api:
     image: ${DOCKER_REGISTRY-}postapi
     build:
       context: .
-      dockerfile: Services\Post\Post.API\Dockerfile
-
-
+      dockerfile: Services/Post/Post.API/Dockerfile
+    ports:
+      - 7001:443 
+      - 7000:80
+    networks:
+      - empower-net
   review.api:
     image: ${DOCKER_REGISTRY-}reviewapi
     build:
       context: .
-      dockerfile: Services\Review\Review.API\Dockerfile
+      dockerfile: Services/Review/Review.API/Dockerfile
+    ports:
+      - 8001:443 
+      - 8000:80
+    networks:
+      - empower-net
 
+networks:
+  empower-net:
+    driver: bridge

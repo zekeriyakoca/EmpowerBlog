@@ -11,26 +11,25 @@ services:
         com.microsoft.visual-studio.project-name: "Post.API"
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
-      - NUGET_PACKAGES=C:\.nuget\packages
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=c:\.nuget\fallbackpackages;c:\.nuget\fallbackpackages2
+      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages;/root/.nuget/fallbackpackages2
     volumes:
-      - C:\repos\EmpowerBlog\Services\Post\Post.API:C:\app
-      - C:\repos\EmpowerBlog:C:\src
-      - C:\Users\zeker\onecoremsvsmon\17.4.11004.1991:C:\remote_debugger:ro
-      - C:\Users\zeker\.nuget\packages\:c:\.nuget\packages:ro
-      - C:\Program Files (x86)\DevExpress 21.1\Components\Offline Packages:c:\.nuget\fallbackpackages:ro
-      - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:c:\.nuget\fallbackpackages2:ro
-      - ${APPDATA}/ASP.NET/Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro
-      - ${APPDATA}/Microsoft/UserSecrets:C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets:ro
+      - C:\repos\EmpowerBlog\Services\Post\Post.API:/app
+      - C:\repos\EmpowerBlog:/src
+      - C:\Users\zeker\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\zeker\.nuget\packages\:/root/.nuget/packages:ro
+      - C:\Program Files (x86)\DevExpress 21.1\Components\Offline Packages:/root/.nuget/fallbackpackages:ro
+      - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages2:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 
-    entrypoint: C:\\remote_debugger\\x64\\msvsmon.exe /noauth /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn /timeout:2147483646 /LogDebuggeeOutputToStdOut
+    entrypoint: tail -f /dev/null
     labels:
-      com.microsoft.visualstudio.debuggee.program: "\"C:\\Program Files\\dotnet\\dotnet.exe\""
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath c:\\.nuget\\packages --additionalProbingPath c:\\.nuget\\fallbackpackages --additionalProbingPath c:\\.nuget\\fallbackpackages2  \"C:\\app\\bin\\Debug\\net7.0\\Post.API.dll\""
-      com.microsoft.visualstudio.debuggee.workingdirectory: "C:\\app"
-      com.microsoft.visualstudio.debuggee.killprogram: "C:\\remote_debugger\\x64\\utils\\KillProcess.exe dotnet.exe"
-
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath /root/.nuget/fallbackpackages2  \"/app/bin/Debug/net7.0/Post.API.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
   review.api:
     image: reviewapi:dev
     container_name: Review.API
@@ -41,26 +40,25 @@ services:
         com.microsoft.visual-studio.project-name: "Review.API"
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
-      - NUGET_PACKAGES=C:\.nuget\packages
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=c:\.nuget\fallbackpackages;c:\.nuget\fallbackpackages2
+      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages;/root/.nuget/fallbackpackages2
     volumes:
-      - C:\repos\EmpowerBlog\Services\Review\Review.API:C:\app
-      - C:\repos\EmpowerBlog:C:\src
-      - C:\Users\zeker\onecoremsvsmon\17.4.11004.1991:C:\remote_debugger:ro
-      - C:\Users\zeker\.nuget\packages\:c:\.nuget\packages:ro
-      - C:\Program Files (x86)\DevExpress 21.1\Components\Offline Packages:c:\.nuget\fallbackpackages:ro
-      - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:c:\.nuget\fallbackpackages2:ro
-      - ${APPDATA}/ASP.NET/Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro
-      - ${APPDATA}/Microsoft/UserSecrets:C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets:ro
+      - C:\repos\EmpowerBlog\Services\Review\Review.API:/app
+      - C:\repos\EmpowerBlog:/src
+      - C:\Users\zeker\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\zeker\.nuget\packages\:/root/.nuget/packages:ro
+      - C:\Program Files (x86)\DevExpress 21.1\Components\Offline Packages:/root/.nuget/fallbackpackages:ro
+      - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages2:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 
-    entrypoint: C:\\remote_debugger\\x64\\msvsmon.exe /noauth /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn /timeout:2147483646 /LogDebuggeeOutputToStdOut
+    entrypoint: tail -f /dev/null
     labels:
-      com.microsoft.visualstudio.debuggee.program: "\"C:\\Program Files\\dotnet\\dotnet.exe\""
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath c:\\.nuget\\packages --additionalProbingPath c:\\.nuget\\fallbackpackages --additionalProbingPath c:\\.nuget\\fallbackpackages2  \"C:\\app\\bin\\Debug\\net7.0\\Review.API.dll\""
-      com.microsoft.visualstudio.debuggee.workingdirectory: "C:\\app"
-      com.microsoft.visualstudio.debuggee.killprogram: "C:\\remote_debugger\\x64\\utils\\KillProcess.exe dotnet.exe"
-
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath /root/.nuget/fallbackpackages2  \"/app/bin/Debug/net7.0/Review.API.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
 
   web.api:
     image: webapi:dev
@@ -72,23 +70,22 @@ services:
         com.microsoft.visual-studio.project-name: "Web.API"
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
-      - NUGET_PACKAGES=C:\.nuget\packages
       - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
-      - NUGET_FALLBACK_PACKAGES=c:\.nuget\fallbackpackages;c:\.nuget\fallbackpackages2
+      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages;/root/.nuget/fallbackpackages2
     volumes:
-      - C:\repos\EmpowerBlog\ApiGateways\Web.API:C:\app
-      - C:\repos\EmpowerBlog:C:\src
-      - C:\Users\zeker\onecoremsvsmon\17.4.11004.1991:C:\remote_debugger:ro
-      - C:\Users\zeker\.nuget\packages\:c:\.nuget\packages:ro
-      - C:\Program Files (x86)\DevExpress 21.1\Components\Offline Packages:c:\.nuget\fallbackpackages:ro
-      - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:c:\.nuget\fallbackpackages2:ro
-      - ${APPDATA}/ASP.NET/Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro
-      - ${APPDATA}/Microsoft/UserSecrets:C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets:ro
+      - C:\repos\EmpowerBlog\ApiGateways\Web.API:/app
+      - C:\repos\EmpowerBlog:/src
+      - C:\Users\zeker\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\zeker\.nuget\packages\:/root/.nuget/packages:ro
+      - C:\Program Files (x86)\DevExpress 21.1\Components\Offline Packages:/root/.nuget/fallbackpackages:ro
+      - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages2:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 
-    entrypoint: C:\\remote_debugger\\x64\\msvsmon.exe /noauth /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn /timeout:2147483646 /LogDebuggeeOutputToStdOut
+    entrypoint: tail -f /dev/null
     labels:
-      com.microsoft.visualstudio.debuggee.program: "\"C:\\Program Files\\dotnet\\dotnet.exe\""
-      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath c:\\.nuget\\packages --additionalProbingPath c:\\.nuget\\fallbackpackages --additionalProbingPath c:\\.nuget\\fallbackpackages2  \"C:\\app\\bin\\Debug\\net7.0\\Web.API.dll\""
-      com.microsoft.visualstudio.debuggee.workingdirectory: "C:\\app"
-      com.microsoft.visualstudio.debuggee.killprogram: "C:\\remote_debugger\\x64\\utils\\KillProcess.exe dotnet.exe"
-
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath /root/.nuget/fallbackpackages2  \"/app/bin/Debug/net7.0/Web.API.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true

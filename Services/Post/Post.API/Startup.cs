@@ -72,7 +72,6 @@ namespace EmpowerBlog.Services.Post.API
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
             app.UseRouting();
 
             app.UseAuthorization();
