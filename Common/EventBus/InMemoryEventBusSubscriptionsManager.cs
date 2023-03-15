@@ -76,6 +76,23 @@ public partial class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptio
         return DoFindSubscriptionToRemove(eventName, typeof(TH));
     }
 
+    public bool HasSubscriptionsForEvent<T>() where T : IntegrationEvent
+    {
+        var key = GetEventKey<T>();
+        return HasSubscriptionsForEvent(key);
+    }
+
+    public bool HasSubscriptionsForEvent(string eventName) => _handlers.ContainsKey(eventName);
+
+    public IEnumerable<SubscriptionInfo> GetHandlersForEvent<T>() where T : IntegrationEvent
+    {
+        var key = GetEventKey<T>();
+        return GetHandlersForEvent(key);
+    }
+
+    public IEnumerable<SubscriptionInfo> GetHandlersForEvent(string eventName) => _handlers[eventName];
+    public Type GetEventTypeByName(string eventName) => _eventTypes.SingleOrDefault(t => t.Name == eventName);
+
     private SubscriptionInfo DoFindSubscriptionToRemove(string eventName, Type handlerType)
     {
         if (!HasSubscriptionsForEvent(eventName))
@@ -106,29 +123,14 @@ public partial class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptio
         }
     }
 
-    public IEnumerable<SubscriptionInfo> GetHandlersForEvent<T>() where T : IntegrationEvent
-    {
-        var key = GetEventKey<T>();
-        return GetHandlersForEvent(key);
-    }
-    public IEnumerable<SubscriptionInfo> GetHandlersForEvent(string eventName) => _handlers[eventName];
-
     private void RaiseOnEventRemoved(string eventName)
     {
         var handler = OnEventRemoved;
         handler?.Invoke(this, eventName);
     }
 
-    public bool HasSubscriptionsForEvent<T>() where T : IntegrationEvent
-    {
-        var key = GetEventKey<T>();
-        return HasSubscriptionsForEvent(key);
-    }
-    public bool HasSubscriptionsForEvent(string eventName) => _handlers.ContainsKey(eventName);
 
-    public Type GetEventTypeByName(string eventName) => _eventTypes.SingleOrDefault(t => t.Name == eventName);
-
-    public string GetEventKey<T>()
+    private string GetEventKey<T>()
     {
         return typeof(T).Name;
     }

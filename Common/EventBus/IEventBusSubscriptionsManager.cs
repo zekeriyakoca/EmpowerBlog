@@ -1,4 +1,5 @@
 ﻿using EventBus.Interfaces;
+using static EventBus.InMemoryEventBusSubscriptionsManager;
 
 namespace EventBus;
 
@@ -14,6 +15,12 @@ public interface IEventBusSubscriptionsManager
     void RemoveSubscription<T, TH>()
             where TH : IIntegrationEventHandler<T>
             where T : IntegrationEvent;
-    
+
+    bool HasSubscriptionsForEvent<T>() where T : IntegrationEvent;
+
+    IEnumerable<SubscriptionInfo> GetHandlersForEvent(string eventName);
+
+    Type GetEventTypeByName(string eventName);
+
     void Clear();
 }

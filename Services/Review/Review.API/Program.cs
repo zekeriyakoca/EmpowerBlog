@@ -32,6 +32,8 @@ builder.Services.AddDbContext<ReviewContext>(options =>
 
 builder.Services.AddTransient<ReviewContextSeeder>();
 
+builder.Services.SetUpIntegrationEvents();
+
 builder.Services.AddEventBus(builder.Configuration);
 
 var app = builder.Build();
@@ -92,6 +94,13 @@ public static class WebApplicationExtension
 
 public static class ServiceCollectionExtensions
 {
+    public static IServiceCollection SetUpIntegrationEvents(this IServiceCollection services)
+    {
+        services.AddTransient<IIntegrationEventHandler<BlogDeletedIntegrationEvent>, BlogDeletedIntegrationEventHandler>();
+
+        return services;
+    }
+
     public static IServiceCollection AddEventBus(this IServiceCollection services, ConfigurationManager configuration)
     {
         services.AddSingleton<IServiceBusPersisterConnection>(sp =>

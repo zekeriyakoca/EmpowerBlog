@@ -12,14 +12,16 @@ namespace EmpowerBlog.Web.API.Services
             this.client = client;
         }
 
-        public Task CreateBlogAsync(BlogDto blog)
+        public async Task CreateBlogAsync(BlogDto blog)
         {
-            throw new NotImplementedException();
+            var result = await client.PostAsJsonAsync($"/api/post", blog);
+            result.EnsureSuccessStatusCode();
         }
 
-        public Task DeleteBlogAsync(Guid blogId)
+        public async Task DeleteBlogAsync(Guid blogId)
         {
-            throw new NotImplementedException();
+            var result = await client.DeleteAsync($"/api/post/{blogId}");
+            result.EnsureSuccessStatusCode();
         }
 
         public async Task<BlogDto> GetBlogAsync(Guid blogId)

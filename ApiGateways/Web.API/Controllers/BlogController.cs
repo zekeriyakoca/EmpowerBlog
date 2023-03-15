@@ -37,5 +37,21 @@ namespace EmpowerBlog.Web.API.Controllers
 
             return Ok(blogDetail);
         }
+
+        [HttpGet("/Test")]
+        public async Task<IActionResult> Test()
+        {
+            var newBlog = new BlogDto()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Test1",
+                Description = "Test Description 1"
+            };
+
+            await blogService.CreateBlogAsync(newBlog);
+            await blogService.DeleteBlogAsync(newBlog.Id);
+
+            return Ok();
+        }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "g+nlC71IEc2WprNgNNDkAphMpcCIf32GCtVRsUodsNP+HRsA2PR99l0JOy3ZmyJGXe8/kKqz7D/IJKQ8MmWP5A==",
+  "dgSpecHash": "wmfvCkY1UpICDACRMR6nlJtlRb4eROXj2/6JAcsud/5WHUqEagiXyUJOqx3Nlj3CReuzmTp3g3mw/Mu2JQpPkA==",
   "success": true,
   "projectFilePath": "C:\\repos\\EmpowerBlog\\Common\\EventBus\\EventBus.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.azure.amqp\\2.6.1\\microsoft.azure.amqp.2.6.1.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\zeker\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\zeker\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.6.0\\system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
