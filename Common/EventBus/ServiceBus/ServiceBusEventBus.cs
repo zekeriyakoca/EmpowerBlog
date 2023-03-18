@@ -111,7 +111,7 @@ namespace EventBus.ServiceBus
 
             _processor.ProcessErrorAsync += (errorArgs) =>
             {
-                _logger.LogError(ex, "ERROR handling message: {ExceptionMessage} - Context: {@ExceptionContext}", ex.Message, context);
+                _logger.LogError(errorArgs.Exception, "ERROR handling message: {ExceptionMessage}", errorArgs.Exception.Message);
                 return Task.CompletedTask;
             };
             await _processor.StartProcessingAsync();

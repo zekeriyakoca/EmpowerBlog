@@ -3,6 +3,12 @@ using EmpowerBlog.Web.API.Services;
 using Polly.Extensions.Http;
 using Polly;
 using System.Threading.RateLimiting;
+using Microsoft.Identity.Web;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
+using static System.Net.Mime.MediaTypeNames;
+using Microsoft.Extensions.Configuration;
+using EmpowerBlog.Web.API.Infrastructure;
 
 namespace EmpowerBlog.Web.API
 {
@@ -23,12 +29,12 @@ namespace EmpowerBlog.Web.API
             services.AddControllers(
                 opt =>
                 { });
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //    .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
 
+            services.SetupAuthentication(Configuration);
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
+            services.AddTransient<AuthorizationDelegatingHandler>();
             services.AddTransient<IBlogService, BlogService>();
             services.AddTransient<IReviewService, ReviewService>();
 
@@ -36,6 +42,7 @@ namespace EmpowerBlog.Web.API
             {
                 client.BaseAddress = new Uri(Configuration["ServiceUrls:Blog"]);
             })
+                .AddHttpMessageHandler<AuthorizationDelegatingHandler>()
                 .AddPolicyHandler(GetRetryPolicy())
                 .AddPolicyHandler(GetCircuitBreakerPolicy());
 
@@ -43,6 +50,7 @@ namespace EmpowerBlog.Web.API
             {
                 client.BaseAddress = new Uri(Configuration["ServiceUrls:Review"]);
             })
+                .AddHttpMessageHandler<AuthorizationDelegatingHandler>()
                 .AddPolicyHandler(GetRetryPolicy())
                 .AddPolicyHandler(GetCircuitBreakerPolicy());
 
@@ -65,16 +73,30 @@ namespace EmpowerBlog.Web.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
-            // Configure the HTTP request pipeline.
             if (env.IsDevelopment())
             {
+                app.UseExceptionHandler(exceptionHandlerApp =>
+                {
+                    exceptionHandlerApp.Run(async context =>
+                    {
+                        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+                        context.Response.ContentType = Text.Plain;
+                        var exception = context.Features.Get<IExceptionHandlerFeature>();
+                        await context.Response.WriteAsync($"An exception was thrown. {exception.Error.ToString()}");
+                    });
+                });
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            else
+            {
+                // TODO : replace with global exception handler
+                app.UseStatusCodePages();
+            }
             app.UseRouting();
 
-            //app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -88,6 +110,18 @@ namespace EmpowerBlog.Web.API
 
 public static class ServiceCollectionExtensions
 {
+    public static IServiceCollection SetupAuthentication(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+               .AddMicrosoftIdentityWebApi(configuration.GetSection("AzureAd"), subscribeToJwtBearerMiddlewareDiagnosticsEvents: true);
+                //.EnableTokenAcquisitionToCallDownstreamApi()
+                //.AddDownstreamWebApi("MyApi", configuration.GetSection("PostApi"))
+                //.AddInMemoryTokenCaches();
+
+
+
+        return services;
+    }
     public static void AddRateLimiter(this IServiceCollection services)
     {
         services.AddRateLimiter(options =>

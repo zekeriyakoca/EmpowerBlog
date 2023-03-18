@@ -1,11 +1,13 @@
 using EmpowerBlog.Services.Post.API.Application.Commands;
 using EmpowerBlog.Services.Post.infrastructure.CQRS;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace EmpowerBlog.Services.Post.API.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class PostController : ControllerBase
     {

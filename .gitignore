@@ -4,3 +4,4 @@
 
 /Services/Review/Review.API/appsettings.Development.json
 /Services/Post/Post.API/appsettings.Development.json
+/ApiGateways/Web.API/appsettings.Development.json

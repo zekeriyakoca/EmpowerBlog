@@ -13,6 +13,11 @@ using EmpowerBlog.Services.Post.API.Application.DomainEventHandlers;
 using EventBus.ServiceBus;
 using Microsoft.Extensions.Options;
 using EventBus;
+using Microsoft.AspNetCore.Diagnostics;
+using static System.Net.Mime.MediaTypeNames;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Web;
 
 namespace EmpowerBlog.Services.Post.API
 {
@@ -35,6 +40,9 @@ namespace EmpowerBlog.Services.Post.API
                 {
                     opt.Filters.Add(typeof(GlobalExceptionFilter));
                 });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"), subscribeToJwtBearerMiddlewareDiagnosticsEvents: true);
 
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
@@ -65,15 +73,30 @@ namespace EmpowerBlog.Services.Post.API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            // Configure the HTTP request pipeline.
             if (env.IsDevelopment())
             {
+                app.UseExceptionHandler(exceptionHandlerApp =>
+                {
+                    exceptionHandlerApp.Run(async context =>
+                    {
+                        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+                        context.Response.ContentType = Text.Plain;
+                        var exception = context.Features.Get<IExceptionHandlerFeature>();
+                        await context.Response.WriteAsync($"An exception was thrown. {exception.Error.ToString()}");
+                    });
+                });
                 app.UseSwagger();
                 app.UseSwaggerUI();
+            }
+            else
+            {
+                // TODO : replace with global exception handler
+                app.UseStatusCodePages();
             }
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -6,7 +6,7 @@ using Microsoft.Identity.Web.Resource;
 
 namespace EmpowerBlog.Web.API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     //[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
@@ -27,6 +27,7 @@ namespace EmpowerBlog.Web.API.Controllers
         [HttpGet("{blogId}")]
         public async Task<IActionResult> GetBlog([FromRoute] Guid blogId)
         {
+            var a = User;
             var blog = await blogService.GetBlogAsync(blogId);
             if (blog == null)
             {
@@ -38,7 +39,7 @@ namespace EmpowerBlog.Web.API.Controllers
             return Ok(blogDetail);
         }
 
-        [HttpGet("/Test")]
+        [HttpGet("Test")]
         public async Task<IActionResult> Test()
         {
             var newBlog = new BlogDto()
