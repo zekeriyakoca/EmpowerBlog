@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: zekeriyakocaempowerblog 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zekeriyakocaempowerblog
+  template:
+    metadata:
+      labels:
+        app: zekeriyakocaempowerblog 
+    spec:
+      containers:
+        - name: zekeriyakocaempowerblog 
+          image: lontraycommon.azurecr.io/zekeriyakocaempowerblog
+          ports:
+          - containerPort: 80
