@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  web.api:
+  web-api:
     image: ${DOCKER_REGISTRY-}webapi
     build:
       context: .
@@ -11,10 +11,10 @@ services:
       - 6000:80
     networks:
       - empower-net
-    #depends_on:
-    #  - post.api
-    #  - review.api
-  post.api:
+#    depends_on:
+#      - post-api
+#      - review-api
+  post-api:
     image: ${DOCKER_REGISTRY-}postapi
     build:
       context: .
@@ -24,7 +24,7 @@ services:
       - 7000:80
     networks:
       - empower-net
-  review.api:
+  review-api:
     image: ${DOCKER_REGISTRY-}reviewapi
     build:
       context: .

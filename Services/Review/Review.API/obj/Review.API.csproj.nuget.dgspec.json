@@ -1,35 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\repos\\EmpowerBlog\\Services\\Review\\Review.API\\Review.API.csproj": {}
+    "/Users/lontray/Documents/repos/EmpowerBlog/Services/Review/Review.API/Review.API.csproj": {}
   },
   "projects": {
-    "C:\\repos\\EmpowerBlog\\Common\\EventBus\\EventBus.csproj": {
+    "/Users/lontray/Documents/repos/EmpowerBlog/Common/EventBus/EventBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\repos\\EmpowerBlog\\Common\\EventBus\\EventBus.csproj",
+        "projectUniqueName": "/Users/lontray/Documents/repos/EmpowerBlog/Common/EventBus/EventBus.csproj",
         "projectName": "EventBus",
-        "projectPath": "C:\\repos\\EmpowerBlog\\Common\\EventBus\\EventBus.csproj",
-        "packagesPath": "C:\\Users\\zeker\\.nuget\\packages\\",
-        "outputPath": "C:\\repos\\EmpowerBlog\\Common\\EventBus\\obj\\",
+        "projectPath": "/Users/lontray/Documents/repos/EmpowerBlog/Common/EventBus/EventBus.csproj",
+        "packagesPath": "/Users/lontray/.nuget/packages/",
+        "outputPath": "/Users/lontray/Documents/repos/EmpowerBlog/Common/EventBus/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\zeker\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/lontray/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -81,44 +72,35 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\repos\\EmpowerBlog\\Services\\Review\\Review.API\\Review.API.csproj": {
+    "/Users/lontray/Documents/repos/EmpowerBlog/Services/Review/Review.API/Review.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\repos\\EmpowerBlog\\Services\\Review\\Review.API\\Review.API.csproj",
+        "projectUniqueName": "/Users/lontray/Documents/repos/EmpowerBlog/Services/Review/Review.API/Review.API.csproj",
         "projectName": "Review.API",
-        "projectPath": "C:\\repos\\EmpowerBlog\\Services\\Review\\Review.API\\Review.API.csproj",
-        "packagesPath": "C:\\Users\\zeker\\.nuget\\packages\\",
-        "outputPath": "C:\\repos\\EmpowerBlog\\Services\\Review\\Review.API\\obj\\",
+        "projectPath": "/Users/lontray/Documents/repos/EmpowerBlog/Services/Review/Review.API/Review.API.csproj",
+        "packagesPath": "/Users/lontray/.nuget/packages/",
+        "outputPath": "/Users/lontray/Documents/repos/EmpowerBlog/Services/Review/Review.API/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\zeker\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/lontray/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\repos\\EmpowerBlog\\Common\\EventBus\\EventBus.csproj": {
-                "projectPath": "C:\\repos\\EmpowerBlog\\Common\\EventBus\\EventBus.csproj"
+              "/Users/lontray/Documents/repos/EmpowerBlog/Common/EventBus/EventBus.csproj": {
+                "projectPath": "/Users/lontray/Documents/repos/EmpowerBlog/Common/EventBus/EventBus.csproj"
               }
             }
           }
@@ -191,7 +173,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
         }
       }
     }

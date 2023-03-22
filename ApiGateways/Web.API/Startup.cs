@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using static System.Net.Mime.MediaTypeNames;
 using Microsoft.Extensions.Configuration;
 using EmpowerBlog.Web.API.Infrastructure;
+using Serilog;
 
 namespace EmpowerBlog.Web.API
 {
@@ -33,14 +34,15 @@ namespace EmpowerBlog.Web.API
             services.SetupAuthentication(Configuration);
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-
+            services.SetupLogger(Configuration);
+            
             services.AddTransient<AuthorizationDelegatingHandler>();
             services.AddTransient<IBlogService, BlogService>();
             services.AddTransient<IReviewService, ReviewService>();
 
             services.AddHttpClient<IBlogService, BlogService>(client =>
             {
-                client.BaseAddress = new Uri(Configuration["ServiceUrls:Blog"]);
+                client.BaseAddress = new Uri(Configuration["ServiceUrls:Post"]);
             })
                 .AddHttpMessageHandler<AuthorizationDelegatingHandler>()
                 .AddPolicyHandler(GetRetryPolicy())
@@ -121,6 +123,32 @@ public static class ServiceCollectionExtensions
 
 
         return services;
+    }
+    public static void SetupLogger(this IServiceCollection services, IConfiguration config)
+    {
+        var loggerConfiguration = new LoggerConfiguration()
+            .Enrich.FromLogContext()
+            .WriteTo.Console();
+
+        loggerConfiguration = config.GetValue<string>("SerilogLevel") switch
+        {
+            "Verbose" => loggerConfiguration.MinimumLevel.Verbose(),
+            "Debug" => loggerConfiguration.MinimumLevel.Debug(),
+            "Information" => loggerConfiguration.MinimumLevel.Information(),
+            "Warning" => loggerConfiguration.MinimumLevel.Warning(),
+            "Error" => loggerConfiguration.MinimumLevel.Error(),
+            "Fatal" => loggerConfiguration.MinimumLevel.Fatal(),
+            _ => loggerConfiguration.MinimumLevel.Warning(),// Default
+        };
+
+        Serilog.Log.Logger = loggerConfiguration
+            .WriteTo.AzureBlobStorage(connectionStringName: "BlobStorage", config, storageContainerName: "empowerd_webapi", storageFileName: $"logs_from_{DateTime.UtcNow.Year}{DateTime.UtcNow.Month}{DateTime.UtcNow.Day}.txt")
+            .CreateLogger();
+
+        services.AddLogging(lb =>
+        {
+            lb.AddSerilog(Serilog.Log.Logger, true);
+        });
     }
     public static void AddRateLimiter(this IServiceCollection services)
     {

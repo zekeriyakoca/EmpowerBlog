@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t32HhlZOTQgrCJ4Ei/Q9nHJ1VRQVe8wUUxFG0FZEkhBT+H13vaFg/B743EORUiSWfnxInz1VYIOZEiS0U9tw/w==",
+  "dgSpecHash": "knWm0ezoUw2Zp91Yq2hOniCia+chNcp0MY9K13LtX7lz0A9F7BZ8fVZ7LWL4UzUoMkibQp7lCa7eJqOFFe0crA==",
   "success": true,
-  "projectFilePath": "C:\\repos\\EmpowerBlog\\Services\\Post\\Post.Domain\\Post.Domain.csproj",
+  "projectFilePath": "/Users/lontray/Documents/repos/EmpowerBlog/Services/Post/Post.Domain/Post.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

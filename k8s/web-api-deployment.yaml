@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert --out k8s
+    kompose.version: 1.28.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: web-api
+  name: web-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: web-api
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert --out k8s
+        kompose.version: 1.28.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/empowerblog-empower-net: "true"
+        io.kompose.service: web-api
+    spec:
+      containers:
+        - image: zekeriyakoca/webapi
+          name: web-api
+          ports:
+            - containerPort: 443
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: ASPNETCORE_URLS
+              value: https://+:443;http://+:80
+            - name: PostApi__BaseUrl
+              value: http://post-api
+            - name: ServiceUrls__Post
+              value: http://post-api
+            - name: ServiceUrls__Review
+              value: http://review-api
+          resources: {}
+      restartPolicy: Always
+status: {}

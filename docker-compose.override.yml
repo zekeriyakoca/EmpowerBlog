@@ -1,19 +1,20 @@
 version: '3.4'
 
 services:
-  web.api:
+  web-api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ServiceUrls__Blog=http://${EMPOWER_EXTERNAL_DNS_NAME_OR_IP}:7000
+      - ServiceUrls__Post=http://${EMPOWER_EXTERNAL_DNS_NAME_OR_IP}:7000
       - ServiceUrls__Review=http://${EMPOWER_EXTERNAL_DNS_NAME_OR_IP}:8000
+      - PostApi__BaseUrl=http://${EMPOWER_EXTERNAL_DNS_NAME_OR_IP}:7000
     ports:
       - "80"
       - "443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-  post.api:
+  post-api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
@@ -23,7 +24,7 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-  review.api:
+  review-api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
