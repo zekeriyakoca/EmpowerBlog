@@ -107,7 +107,6 @@ namespace EmpowerBlog.Web.API
             });
         }
     }
-
 }
 
 public static class ServiceCollectionExtensions
@@ -142,7 +141,7 @@ public static class ServiceCollectionExtensions
         };
 
         Serilog.Log.Logger = loggerConfiguration
-            .WriteTo.AzureBlobStorage(connectionStringName: "BlobStorage", config, storageContainerName: "empowerd_webapi", storageFileName: $"logs_from_{DateTime.UtcNow.Year}{DateTime.UtcNow.Month}{DateTime.UtcNow.Day}.txt")
+            .WriteTo.AzureBlobStorage(connectionStringName: "BlobStorage", config, storageContainerName: "empowerdwebapi", storageFileName: $"logs_from_{DateTime.UtcNow.Year}{DateTime.UtcNow.Month}{DateTime.UtcNow.Day}.txt")
             .CreateLogger();
 
         services.AddLogging(lb =>
